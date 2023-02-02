@@ -10,8 +10,11 @@ import {
 import { Container } from "@mui/system";
 import "../CSS/NewHeader.css";
 import { Link } from "react-router-dom";
+import { CryptoState } from "../Context/CryptoContext";
 
 const NewHeader = () => {
+  const { currency, setCurrency } = CryptoState();
+
   return (
     <AppBar color="transparent" position="static">
       <Container>
@@ -27,8 +30,14 @@ const NewHeader = () => {
           </InputLabel>
           <Select
             variant="outlined"
-            style={{ color: "white", width: "100", marginRight: "15" }}
-            // onChange={handleChange}
+            style={{
+              color: "white",
+              width: "100",
+              height: 40,
+              marginRight: "15",
+            }}
+            value={currency}
+            onChange={(e) => setCurrency(e.target.value)}
           >
             <MenuItem value={"INR"}>INR</MenuItem>
             <MenuItem value={"USD"}>USD</MenuItem>
