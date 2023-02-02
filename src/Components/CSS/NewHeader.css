@@ -1,0 +1,8 @@
+.nameApp {
+  /* border: 2px solid red; */
+  flex: 1;
+  color: gold;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bolder;
+  cursor: pointer;
+}
