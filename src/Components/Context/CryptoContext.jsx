@@ -20,6 +20,8 @@ const CryptoContext = ({ children }) => {
 
 export default CryptoContext;
 
+// made a state which can be used anywhere in the app
+// by useContext
 export const CryptoState = () => {
   return useContext(Crypto);
 };
