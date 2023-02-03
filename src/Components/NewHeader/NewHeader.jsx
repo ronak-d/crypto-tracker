@@ -25,9 +25,9 @@ const NewHeader = () => {
             </Link>
           </Typography>
 
-          <InputLabel style={{ color: "white", margin: "0, 10px" }}>
+          {/* <InputLabel style={{ color: "white", margin: "0, 10px" }}>
             Select Currency :
-          </InputLabel>
+          </InputLabel> */}
           <Select
             variant="outlined"
             style={{
