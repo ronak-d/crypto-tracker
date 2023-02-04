@@ -14,6 +14,7 @@ const Banner = () => {
               fontWeight: "bold",
               padding: "7px 0px",
               fontFamily: "Montserrat",
+              marginTop: "27px",
             }}
           >
             Crypto Tracker
@@ -28,7 +29,7 @@ const Banner = () => {
               fontFamily: "Montserrat",
             }}
           >
-            Get all the info regarding all your Crypto Currencies.
+            Get All The Info Regarding Your Favorite Crypto Currency
           </Typography>
         </div>
         <Caraoussel />

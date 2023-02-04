@@ -22,23 +22,72 @@ const Caraoussel = () => {
   const items = trendingCoins.map((coin) => {
     return (
       <Link className={Caraoussel} to={`/coins/${coin.id}`}>
-        <div style={{ margin: "50px 0px", marginRight: "20px" }}>
+        <div
+          style={{
+            // border: "1px solid red",
+            margin: "50px 0px",
+            marginRight: "20px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <img
             src={coin?.image}
             alt={coin.name}
-            height="80"
+            height="100"
+            width="100"
             style={{ margin: "10px" }}
           />
           <p
             style={{
-              display: "flex",
               fontFamily: "Montserrat",
               textAlign: "center",
+              fontWeight: "bold",
+              alignContent: "flex-start",
               // border: "2px solid red",
-              marginLeft: "15px",
+              // color: "white",
+            }}
+          >
+            {coin.name}
+          </p>
+
+          {/* % price in 24  */}
+          <span
+            style={{
+              fontFamily: "Montserrat",
+              fontWeight: "bold",
+              margin: "5px 0px",
+            }}
+          >
+            <p
+              style={
+                coin.price_change_percentage_24h > 0
+                  ? { color: "green" }
+                  : { color: "red" }
+              }
+            >
+              {/* {coin.symbol} */}
+              {coin.price_change_percentage_24h > 1
+                ? ` +${coin.price_change_percentage_24h}`
+                : ` ${coin.price_change_percentage_24h}`}
+              {/* {`${coin.price_change_percentage_24h}%`} */}
+            </p>
+          </span>
+
+          {/* price in rupee or dollar */}
+          <p
+            style={{
+              // display: "flex",
+              fontFamily: "Montserrat",
+              textAlign: "center",
+              fontWeight: "bold",
+              // border: "2px solid red",
               color: "white",
             }}
-          >{`${symbol} ${coin.current_price}`}</p>
+          >
+            {`${symbol} ${coin.current_price}`}
+          </p>
         </div>
       </Link>
     );
@@ -51,7 +100,7 @@ const Caraoussel = () => {
       items: 2,
     },
     512: {
-      items: 6,
+      items: 5,
     },
   };
 
@@ -61,7 +110,7 @@ const Caraoussel = () => {
         mouseTracking
         infinite
         autoPlayInterval={1000}
-        animationDuration={1500}
+        animationDuration={1300}
         disableButtonsControls
         disableDotsControls
         responsive={responsive} // need to make a diff obj.
