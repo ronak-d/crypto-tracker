@@ -14,7 +14,7 @@ const Caraoussel = () => {
     const { data } = await axios.get(TrendingCoins(currency));
     setTrendnigCoins(data);
   };
-  console.log(trendingCoins);
+  // console.log(trendingCoins);
   useEffect(() => {
     fetchTrendingCoins();
   }, [currency]);
@@ -25,8 +25,8 @@ const Caraoussel = () => {
         <div
           style={{
             // border: "1px solid red",
-            margin: "50px 0px",
-            marginRight: "20px",
+            margin: "50px 10px",
+            // marginRight: "20px",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",

@@ -6,7 +6,7 @@
 
 .bannerContent {
   /* border: 2px solid red; */
-  height: 420px;
+  /* height: 420px; */
   display: flex;
   flex-direction: column;
   justify-content: space-around;
