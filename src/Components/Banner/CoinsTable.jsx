@@ -1,10 +1,4 @@
-import {
-  createTheme,
-  TableCell,
-  TableContainer,
-  TableHead,
-  Typography,
-} from "@mui/material";
+import { createTheme, Typography } from "@mui/material";
 import { Container, ThemeProvider } from "@mui/system";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -20,6 +14,7 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import { Key } from "@mui/icons-material";
 
 const CoinsTable = () => {
   const [coins, setCoins] = useState([]); //{api includes 100 coins}.
@@ -75,18 +70,20 @@ const CoinsTable = () => {
             }}
             id="outlined-basic"
             // label="Outlined"
-            placeholder="Search Crypto..."
+            placeholder="Search for Cryptos..."
             variant="outlined"
             onChange={(e) => setSearch(e.target.value)}
           />
 
           <TableContainer>
             {loading ? (
-              <LinearProgress style={{ backgroundColor: "gold" }} />
+              <LinearProgress
+                style={{ backgroundColor: "gold", margin: "20px, 0px" }}
+              />
             ) : (
-              <Table>
-                <TableHead style={{ backgroundColor: "darkgray" }}>
-                  {["coins", "Prices", "24Change", "Market Cap"].map((head) => (
+              <Table style={{ margin: "20px 0px" }}>
+                <TableHead style={{ backgroundColor: "yellowgreen" }}>
+                  {["Coins", "Prices", "24Change", "Market Cap"].map((head) => (
                     <TableCell
                       style={{
                         color: "black",
@@ -94,7 +91,9 @@ const CoinsTable = () => {
                         fontFamily: "Montserrat",
                       }}
                       key={head}
-                    ></TableCell>
+                    >
+                      {head}
+                    </TableCell>
                   ))}
                 </TableHead>
               </Table>
