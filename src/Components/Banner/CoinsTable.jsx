@@ -85,7 +85,7 @@ const CoinsTable = () => {
             Search Crypto Currencies by their Market Capital
           </Typography>
 
-          <TextField
+          {/* <TextField
             style={{
               width: "100%",
               color: "darkgray",
@@ -98,7 +98,7 @@ const CoinsTable = () => {
             placeholder="Search for Cryptos..."
             variant="outlined"
             onChange={(e) => setSearch(e.target.value)}
-          />
+          /> */}
 
           <TableContainer>
             {loading ? (
@@ -107,7 +107,7 @@ const CoinsTable = () => {
               />
             ) : (
               <Table style={{ margin: "20px 0px" }}>
-                <TableHead style={{ backgroundColor: "yellowgreen" }}>
+                <TableHead style={{ backgroundColor: "yellow" }}>
                   {["Coins", "Prices", "24H % Change", "Market Cap"].map(
                     (head) => (
                       <TableCell
@@ -128,7 +128,7 @@ const CoinsTable = () => {
                   {coins.map((coin) => {
                     return (
                       <TableRow
-                        onClick={() => navigate("/coins/${coin.id}")}
+                        onClick={() => navigate(`/coins/${coin.id}`)}
                         style={{
                           color: "white",
                         }}
@@ -178,11 +178,15 @@ const CoinsTable = () => {
               </Table>
             )}
           </TableContainer>
+
+          {/* pagination */}
           <Container
             style={{
-              alignItems: "center",
+              display: "flex",
+              justifyContent: "center",
               backgroundColor: "yellow",
-              padding: "10px",
+              padding: "9px",
+              borderRadius: "5px",
             }}
           >
             <Pagination
