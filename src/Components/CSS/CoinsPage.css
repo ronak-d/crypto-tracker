@@ -1,19 +1,20 @@
 .coinContainer {
   border: 2px solid white;
   display: flex;
+  font-family: Montserrat;
 }
-
 .coinInfo {
   border: 2px solid red;
   width: 40%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   text-align: center;
 }
+.coinImg {
+  margin: 15px;
+}
 .coinCharts {
   border: 2px solid red;
-  height: 100vh;
   width: 70%;
   display: flex;
   flex-direction: column;
@@ -21,12 +22,28 @@
 }
 .heading {
   /* border: 2px solid red; */
+  color: yellow;
   font-size: 25px;
   font-weight: bolder;
-  margin-bottom: 20px;
-  font-family: Montserrat;
 }
-@media (min-width: 20em) and (max-width: 40em) {
+.description {
+  width: 100%;
+  text-align: justify;
+  padding: 7px;
+}
+.rank {
+  margin: 7px;
+  font-size: 14px;
+  color: yellow;
+  font-weight: bold;
+}
+.marketdata {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+/* Media queries for mobile responsive. */
+@media (min-width: 0em) and (max-width: 40em) {
   .coinContainer {
     display: block;
     width: 100%;

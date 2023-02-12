@@ -10,11 +10,14 @@ import "../CSS/CoinsPage.css";
 import { Box, Container } from "@mui/material";
 import Typography from "@mui/material/Typography";
 
+// parser
+import parse from "html-react-parser";
+
 const CoinsPage = () => {
   const { id } = useParams();
-  const [coin, setCoin] = useState();
+  const [coin, setCoin] = useState(null);
 
-  // const { currency, symbol } = CryptoState();
+  const { currency, symbol } = CryptoState();
 
   const fetchCoin = async () => {
     const { data } = await axios.get(SingleCoin(id));
@@ -33,11 +36,28 @@ const CoinsPage = () => {
         <Box className="coinInfo">
           {
             <Container>
-              <img src={coin?.image.large} alt="" />
-              <p className="heading">{coin?.id}</p>
-              <p variant="h6" component="h6">
-                {/* {coin?.description.en.split(". ")[0]} */}
-              </p>
+              <Box>
+                <img className="coinImg" src={coin?.image.large} alt="" />
+              </Box>
+              <span className="heading">{coin?.name}</span>
+              <hr />
+
+              <span className="description">
+                {/* always need to pass into string else giving err */}
+                {parse(`${coin?.description.en.split(". ")[0]}`)}
+              </span>
+              <hr />
+              <div className="marketdata">
+                <div className="rank">Rank : {coin?.coingecko_rank}</div>
+                <div className="rank">
+                  Current Price : {currency}{" "}
+                  {coin?.market_data.current_price[currency.toLowerCase()]}
+                </div>
+                <div className="rank">
+                  Market Capital : {currency}{" "}
+                  {coin?.market_data.market_cap[currency.toLowerCase()]}
+                </div>
+              </div>
             </Container>
           }
         </Box>
