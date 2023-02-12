@@ -7,7 +7,7 @@ import CryptoCharts from "../ChartsComponent/CryptoCharts";
 
 // css
 import "../CSS/CoinsPage.css";
-import { Box, Container } from "@mui/material";
+import { Box, Container, LinearProgress } from "@mui/material";
 import Typography from "@mui/material/Typography";
 
 // parser
@@ -30,7 +30,9 @@ const CoinsPage = () => {
     fetchCoin();
   }, []);
 
-  return (
+  return coin == null ? (
+    <LinearProgress color="secondary" />
+  ) : (
     <>
       <Box className="coinContainer">
         <Box className="coinInfo">
@@ -39,13 +41,13 @@ const CoinsPage = () => {
               <Box>
                 <img className="coinImg" src={coin?.image.large} alt="" />
               </Box>
-              <span className="heading">{coin?.name}</span>
+              <div className="heading">{coin?.name}</div>
               <hr />
 
-              <span className="description">
+              <div className="description">
                 {/* always need to pass into string else giving err */}
                 {parse(`${coin?.description.en.split(". ")[0]}`)}
-              </span>
+              </div>
               <hr />
               <div className="marketdata">
                 <div className="rank">Rank : {coin?.coingecko_rank}</div>
@@ -63,7 +65,7 @@ const CoinsPage = () => {
         </Box>
 
         <Box className="coinCharts">
-          <CryptoCharts />
+          <CryptoCharts coin={coin} />
         </Box>
       </Box>
     </>

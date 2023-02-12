@@ -1,11 +1,11 @@
 .coinContainer {
-  border: 2px solid white;
+  /* border: 2px solid white; */
   display: flex;
   font-family: Montserrat;
 }
 .coinInfo {
-  border: 2px solid red;
-  width: 40%;
+  border-right: 2px solid grey;
+  width: 35%;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -14,7 +14,7 @@
   margin: 15px;
 }
 .coinCharts {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   width: 70%;
   display: flex;
   flex-direction: column;
@@ -22,6 +22,7 @@
 }
 .heading {
   /* border: 2px solid red; */
+  margin: 5px;
   color: yellow;
   font-size: 25px;
   font-weight: bolder;
@@ -29,10 +30,10 @@
 .description {
   width: 100%;
   text-align: justify;
-  padding: 7px;
+  padding: 17px 5px;
 }
 .rank {
-  margin: 7px;
+  margin: 7px 0px;
   font-size: 14px;
   color: yellow;
   font-weight: bold;
