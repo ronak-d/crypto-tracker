@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { HistoricalChart } from "../Config/api";
 import { CryptoState } from "../Context/CryptoContext";
 import CircularProgress from "@mui/material/CircularProgress";
+import Button from "@mui/material/Button";
 
 // chart.js
 import { Line } from "react-chartjs-2";
@@ -25,15 +26,17 @@ const CryptoCharts = ({ coin }) => {
 
   const fetchCharts = async () => {
     const { data } = await axios.get(HistoricalChart(coin.id, days, currency));
-    // console.log("data", data);
+    // console.log(data.prices);
     setHistoricalData(data.prices);
     console.log("historicaldata", historicaldata);
   };
 
   useEffect(() => {
     fetchCharts();
+    console.log(days);
   }, [currency, days]);
 
+  // for charts hover etc.
   ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -47,7 +50,7 @@ const CryptoCharts = ({ coin }) => {
   return !historicaldata ? (
     <CircularProgress color="success" />
   ) : (
-    <>
+    <div style={{ margin: "30px " }}>
       <Line
         data={{
           // x- axis
@@ -64,12 +67,61 @@ const CryptoCharts = ({ coin }) => {
             {
               data: historicaldata.map((coin) => coin[1]),
               label: `Price ( Past ${days} Days ) in ${currency}`,
-              borderColor: "#EEBC1D",
+              borderColor: "yellow",
             },
           ],
         }}
+        options={{
+          elements: {
+            point: {
+              radius: 1,
+            },
+          },
+        }}
       />
-    </>
+      {/* buttons */}
+      <div
+        style={{
+          margin: "30px",
+          display: "flex",
+          flexdirection: "row",
+          justifyContent: "space-between",
+        }}
+      >
+        <Button
+          variant="outlined"
+          onClick={() => {
+            setDays(1);
+          }}
+        >
+          24 Hours
+        </Button>
+        <Button
+          variant="outlined"
+          onClick={() => {
+            setDays(30);
+          }}
+        >
+          30 Days
+        </Button>
+        <Button
+          variant="outlined"
+          onClick={() => {
+            setDays(90);
+          }}
+        >
+          3 Months
+        </Button>
+        <Button
+          variant="outlined"
+          onClick={() => {
+            setDays(365);
+          }}
+        >
+          1 Year{" "}
+        </Button>
+      </div>
+    </div>
   );
 };
 
