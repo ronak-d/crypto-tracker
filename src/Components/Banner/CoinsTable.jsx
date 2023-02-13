@@ -31,7 +31,7 @@ const CoinsTable = () => {
 
   const navigate = useNavigate(); // to take from the coin table
 
-  const { currency } = CryptoState();
+  const { currency, symbol } = CryptoState();
 
   const fetchCoins = async () => {
     setLoading(true);
@@ -82,7 +82,7 @@ const CoinsTable = () => {
               fontWeight: "bolder",
             }}
           >
-            Search Crypto Currencies by their Market Capital
+            Crypto Currencies by their Market Capital
           </Typography>
 
           {/* <TextField
@@ -157,7 +157,7 @@ const CoinsTable = () => {
                           style={{ color: "yellow", fontWeight: "bold" }}
                           align="left"
                         >
-                          {coin.current_price.toFixed(2)}
+                          {`${symbol} ${coin.current_price.toFixed(2)}`}
                         </TableCell>
                         <TableCell
                           style={{ color: "yellow", fontWeight: "bold" }}
